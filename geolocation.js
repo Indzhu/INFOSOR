@@ -1,10 +1,4 @@
-// js/geolocation.js
-// Модуль для работы с геолокацией и определением страны/города
 
-/**
- * Получает координаты пользователя через Geolocation API.
- * Возвращает объект: { latitude, longitude }
- */
 export function getUserCoordinates() {
   return new Promise((resolve, reject) => {
     if (!("geolocation" in navigator)) {
@@ -17,7 +11,7 @@ export function getUserCoordinates() {
         resolve({ latitude, longitude });
       },
       (error) => {
-        // Можно дополнительно обработать коды ошибок
+        
         reject(error);
       },
       {
@@ -29,18 +23,7 @@ export function getUserCoordinates() {
   });
 }
 
-/**
- * Определяет страну и город по координатам.
- * Используется бесплатный reverse-geocode сервис BigDataCloud (без ключа).
- * Документация: https://www.bigdatacloud.com/docs/api/free-reverse-geocode-to-city-api
- *
- * Возвращает объект:
- * {
- *   countryCode: "KZ",
- *   city: "Almaty",
- *   country: "Kazakhstan"
- * }
- */
+
 export async function reverseGeocode({ latitude, longitude }) {
   const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${encodeURIComponent(
     latitude
