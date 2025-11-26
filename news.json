@@ -1,0 +1,46 @@
+{
+  "KZ": [
+    {
+      "title": "Новый IT-хаб в Астане",
+      "description": "В столице открылся инновационный центр для технологических стартапов и акселерационных программ.",
+      "image": "https://images.pexels.com/photos/37347/office-freelancer-computer-business-37347.jpeg",
+      "link": "https://example.com/kz/it-hub-astana"
+    },
+    {
+      "title": "Развитие 5G в Казахстане",
+      "description": "Один из крупнейших операторов связи запустил пилотный проект 5G в Алматы.",
+      "image": "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
+      "link": "https://example.com/kz/5g-almaty"
+    }
+  ],
+  "RU": [
+    {
+      "title": "Новые инвестиции в образование",
+      "description": "В школах запускают профильные технологические классы и программы по цифровым навыкам.",
+      "image": "https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg",
+      "link": "https://example.com/ru/education-invest"
+    }
+  ],
+  "US": [
+    {
+      "title": "Крупная конференция по ИИ",
+      "description": "Ведущие компании представили новые решения в области машинного обучения и генеративных моделей.",
+      "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
+      "link": "https://example.com/us/ai-conference"
+    }
+  ],
+  "DEFAULT": [
+    {
+      "title": "Новости технологий со всего мира",
+      "description": "Подборка самых интересных IT-событий недели: искусственный интеллект, космос и новые гаджеты.",
+      "image": "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
+      "link": "https://example.com/world/tech-week"
+    },
+    {
+      "title": "Тренды в кибербезопасности",
+      "description": "Эксперты обсуждают новые угрозы и подходы к защите данных в цифровую эпоху.",
+      "image": "https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg",
+      "link": "https://example.com/world/cyber-security"
+    }
+  ]
+}

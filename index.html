@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>GeoNews — Новости по твоему местоположению</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header__logo">🌍 GeoNews</div>
+    <button id="refresh-location" class="btn btn--primary">
+      🔄 Обновить местоположение
+    </button>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <h1 class="hero__title">Новости для <span id="location-name">вашего региона</span></h1>
+      <p id="status" class="hero__status">
+        Определяем ваше местоположение...
+      </p>
+    </section>
+
+    <section class="news">
+      <div id="news-list" class="news__list">
+        <!-- Карточки новостей будут добавляться сюда через JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 GeoNews. Демонстрационный учебный проект.</p>
+  </footer>
+
+  <!-- Подключаем главный модуль -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
