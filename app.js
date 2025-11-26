@@ -1,5 +1,4 @@
-// js/app.js
-// Главная логика приложения GeoNews
+
 
 import { getUserCoordinates, reverseGeocode } from "./geolocation.js";
 
@@ -8,10 +7,8 @@ const locationNameEl = document.getElementById("location-name");
 const newsListEl = document.getElementById("news-list");
 const refreshBtn = document.getElementById("refresh-location");
 
-/**
- * Загружает новости из локального JSON-файла и возвращает массив новостей
- * для указанного countryCode (например, "KZ", "RU" или "DEFAULT").
- */
+
+ 
 async function fetchNews(countryCode) {
   const response = await fetch("./data/news.json", {
     cache: "no-cache",
@@ -27,7 +24,7 @@ async function fetchNews(countryCode) {
     return data[countryCode];
   }
 
-  // Если для страны нет новостей — берём DEFAULT
+
   if (data.DEFAULT && data.DEFAULT.length > 0) {
     return data.DEFAULT;
   }
@@ -35,9 +32,7 @@ async function fetchNews(countryCode) {
   return [];
 }
 
-/**
- * Рендерит список карточек новостей.
- */
+
 function renderNews(newsArray, locationLabel) {
   newsListEl.innerHTML = "";
 
@@ -104,28 +99,24 @@ function renderNews(newsArray, locationLabel) {
   });
 }
 
-/**
- * Универсальная функция показа статуса.
- */
+
 function setStatus(message) {
   if (statusEl) {
     statusEl.textContent = message;
   }
 }
 
-/**
- * Загружает и показывает новости на основе текущего местоположения пользователя.
- */
+
 async function loadNewsForUser() {
   try {
     refreshBtn.disabled = true;
     setStatus("Определяем ваше местоположение...");
     locationNameEl.textContent = "вашего региона";
 
-    // 1. Координаты
+    
     const coords = await getUserCoordinates();
 
-    // 2. Обратное геокодирование
+    
     setStatus("Определяем ваш город и страну...");
     const region = await reverseGeocode(coords);
 
@@ -135,17 +126,17 @@ async function loadNewsForUser() {
 
     locationNameEl.textContent = locationLabel;
 
-    // 3. Загрузка новостей
+    
     setStatus(`Загружаем новости для: ${countryCode}...`);
     const news = await fetchNews(countryCode);
 
-    // 4. Рендер
+    
     renderNews(news, locationLabel);
     setStatus("");
   } catch (error) {
     console.error("Ошибка при загрузке новостей по геолокации:", error);
 
-    // Fallback: показываем мировые новости
+    
     locationNameEl.textContent = "Мира";
     setStatus(
       "Не удалось определить местоположение. Показываем мировые новости."
@@ -168,18 +159,16 @@ async function loadNewsForUser() {
   }
 }
 
-/**
- * Инициализация приложения.
- */
+
 function init() {
-  // При первой загрузке сразу пробуем определить местоположение
+  
   loadNewsForUser();
 
-  // Кнопка ручного обновления местоположения
+  
   refreshBtn.addEventListener("click", () => {
     loadNewsForUser();
   });
 }
 
-// Запускаем после загрузки DOM
+
 document.addEventListener("DOMContentLoaded", init);
